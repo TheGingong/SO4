@@ -8,9 +8,14 @@ import numpy as np
 
 class plot(differential):
     def __init__(self):
-        print(object.b)
-        plt.plot([5,object.b])
-        plt.show()
+        print(str(object.a) + ("x^2") + " + " + str(object.b) + "x" + " + " + str(object.c))
+
+    def funktionsforskrift(x):
+        return ((object.a * x**2) + (object.b*x) + object.c)
+
+    x = np.linspace(-3, 3, 1000)
+    plt.plot(x, funktionsforskrift(x))
+    plt.show()
 
 plot()
 
