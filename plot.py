@@ -11,11 +11,12 @@ class plot():
 #laver graf fra x -3 til 3, og laver 1000 mellem tal imellem de 2 punkter.
 x = np.linspace (-3,3, 1000)
 #her sætter vi vores x værdi
-def f(x):
-    return x**2
+def f(self,xZero):
+    self.xZero = xZero
+    return self.xZero**2
 
 #plotter funktion ind
-plt.plot(x,f(x))
+plt.plot(x,f(self,xZero))
 
 #viser vores funktion
 plt.show()
