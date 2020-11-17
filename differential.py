@@ -26,7 +26,7 @@ class differential():
 
             self.deltaX = self.deltaX / 2
 
-            #print(self.formel)
+            print(self.formel)
 
             if loop == 100:
                 break

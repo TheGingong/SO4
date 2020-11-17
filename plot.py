@@ -15,8 +15,6 @@ class plot(differential):
 plot()
 
 
-
-
 """
 # laver graf fra x -3 til 3, og laver 1000 mellem tal imellem de 2 punkter.
 x = np.linspace(-3, 3, 1000)
