@@ -22,3 +22,6 @@ plt.plot(x,f(self,xZero))
 plt.show()
 
 #https://www.youtube.com/watch?v=u5VCZBUNOcA
+
+
+ddddddddddd
