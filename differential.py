@@ -13,6 +13,8 @@ class differential():
         #Her laver vi selve funktionsforskriften fra a, b og c.
         return ((self.a * x**2) + (self.b*x) + self.c)
 
+    #Her differentiere vi deltaX til at gå imod x0 indtil den er så tæt på nul som muligt
+    #Og dermed får vi hældningskoefficienten.
     def Differential(self, xZero, deltaX):
         self.xZero = xZero
         self.deltaX = deltaX
