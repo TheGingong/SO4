@@ -18,7 +18,7 @@ class plot(differential, integralregning):
         yer = f(objectIntegralregning.a, xer, objectIntegralregning.b, objectIntegralregning.c)
         plt.plot(xer, yer)
         plt.fill_between(xer, yer, 0, color="red", alpha=0.5)
-df
+
         ax = plt.subplots()
         #ax.text(0.5 * (objectIntegralregning.a + objectIntegralregning.b), 30, r"$\int_a^b f(x)\mathrm{d}x$",
          #       horizontalalignment='center', fontsize=20)

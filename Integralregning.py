@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 
+
 #Vi har snakket med Casper, Frederik og David omkring hvordan de gjorde deres matematiske regneregler, og
 #brugte den viden til at komme videre da vi sad fast.
 

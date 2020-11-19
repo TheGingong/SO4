@@ -1,6 +1,7 @@
 import math
 
 class differential():
+
     #Vi har fået hjælp af david til at lave differentialregningen i python
     def __init__(self, a, b, c):
         self.a = a
