@@ -7,7 +7,7 @@ import numpy as np
 
 #print(object.a, object.b, object.c, object.xZero, object.formel)
 
-class plot(differential):
+class plot(differential, integralregning):
     def __init__(self):
         print(str(object.a) + ("x^2") + " + " + str(object.b) + "x" + " + " + str(object.c))
 
