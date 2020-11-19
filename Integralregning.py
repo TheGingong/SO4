@@ -46,5 +46,5 @@ class integralregning():
                 print(self.sum)
                 break
 
-object = integralregning(5, 6, 10, 10000)
-object.integral(3, 10)
+objectIntegralregning = integralregning(50, 34, 100, 10000)
+objectIntegralregning.integral(3, 10)

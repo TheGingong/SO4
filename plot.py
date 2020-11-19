@@ -2,45 +2,28 @@ import math
 from differential import *
 from Integralregning import *
 import matplotlib.pyplot as plt
+from matplotlib import *
 import numpy as np
-#from sympy import *
-
-#print(object.a, object.b, object.c, object.xZero, object.formel)
 
 class plot(differential, integralregning):
     def __init__(self):
-        print(str(object.a) + ("x^2") + " + " + str(object.b) + "x" + " + " + str(object.c))
+        def f(a, x, b, c):
+            # Her laver vi selve funktionsforskriften fra a, b og c.
+            return ((a * x ** 2) + (b * x) + c)
 
-    #def funktionsforskrift(x):
-    #    x = Symbol('x')
-    #    return ((object.a * x**2) + (object.b*x) + object.c)
 
-    def f(x):
-        return x ** 2
 
-    x = np.linspace(-3, 3, 1000)
-    plt.plot(x, f(x))
-    plt.show()
 
+        xer = np.linspace(-3, 3, 1000)
+        yer = f(objectIntegralregning.a, xer, objectIntegralregning.b, objectIntegralregning.c)
+        plt.plot(xer, yer)
+        plt.fill_between(xer, yer, 0, color="red", alpha=0.5)
+
+        ax = plt.subplots()
+        #ax.text(0.5 * (objectIntegralregning.a + objectIntegralregning.b), 30, r"$\int_a^b f(x)\mathrm{d}x$",
+         #       horizontalalignment='center', fontsize=20)
+        ax.plot(xer, yer, 'r', linewidth=2)
+        ax.set_ylim(bottom=0)
+
+        plt.show()
 plot()
-
-
-"""
-# laver graf fra x -3 til 3, og laver 1000 mellem x værdiger imellem de 2 punkter.
-x = np.linspace(-3, 3, 1000)
-
-
-# her sætter vi vores x værdi
-def f(self, xZero):
-    self.xZero = xZero
-    return self.xZero ** 2
-
-
-# plotter funktion ind
-plt.plot(x, f(self, xZero))
-
-# viser vores funktion
-plt.show()
-
-# https://www.youtube.com/watch?v=u5VCZBUNOcA
-"""
