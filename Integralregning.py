@@ -7,6 +7,9 @@ from matplotlib.patches import Polygon
 #Vi har snakket med Casper, Frederik og David omkring hvordan de gjorde deres matematiske regneregler, og
 #brugte den viden til at komme videre da vi sad fast.
 
+#Vi har valgt at følge lidt den samme stil som vi skrev i differentialregning da vi følte at det gav mere mening i forhold til
+#formlerne som vi fik vidst i matematik.
+
 class integralregning():
     #I init funktionen modtager vi en a-, b-, c værdi samt en værdi for hvor mange søjler der skal være
     #for at regne det mest præcise areal ud.
