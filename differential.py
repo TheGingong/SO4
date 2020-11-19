@@ -15,16 +15,16 @@ class differential():
 
     #Her differentiere vi deltaX til at gå imod x0 indtil den er så tæt på nul som muligt
     #Og dermed får vi hældningskoefficienten.
-    def Differential(self, xZero, deltaX):
+    def Differential(self, xZero, xOne):
         self.xZero = xZero
-        self.deltaX = deltaX
+        self.xOne = xOne
 
         loop = 0
         while loop < 50:
             loop += 1
-            self.formel = (self.func(self.xZero + self.deltaX) - self.func(self.xZero)) / ((self.xZero + self.deltaX) - self.xZero)
+            self.formel = (self.func(self.xZero + self.xOne) - self.func(self.xZero)) / ((self.xZero + self.xOne) - self.xZero)
 
-            self.deltaX = self.deltaX / 2
+            self.xOne = self.xOne / 2
 
             print(self.formel)
 
