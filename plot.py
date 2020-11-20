@@ -21,6 +21,5 @@ class plot(differential, integralregning):
         plt.plot(xer, yer)
         plt.fill_between(xer, yer, 0, color="red", alpha=0.5)
         plt.vlines(x=[a,b],ymin=0,ymax=[100,100])
-
         plt.show()
 plot()
