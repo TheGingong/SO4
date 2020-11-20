@@ -3,7 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 
-
 # Vi har snakket med Casper, Frederik og David omkring hvordan de gjorde deres matematiske regneregler, og
 # brugte den viden til at komme videre da vi sad fast.
 
@@ -28,7 +27,8 @@ class integralregning():
     # arealet skal udregnes.
     def integral(self, xZero, xOne):
         self.xZero = xZero
-        self.xTwo = xOne
+        self.xZeroTwo = xZero
+        self.xOneTwo = xOne
         self.xOne = xOne
 
         self.deltaX = (self.xOne - self.xZero) / self.columns
@@ -47,7 +47,6 @@ class integralregning():
             if n == self.columns:
                 print(self.sum)
                 break
-
 
 objectIntegralregning = integralregning(5, 6, 10, 10000)
 objectIntegralregning.integral(3, 10)
