@@ -27,6 +27,7 @@ class integralregning():
     #arealet skal udregnes.
     def integral(self, xZero, xOne):
         self.xZero = xZero
+        self.xTwo = xOne
         self.xOne = xOne
 
         self.deltaX = (self.xOne - self.xZero) / self.columns
@@ -46,5 +47,5 @@ class integralregning():
                 print(self.sum)
                 break
 
-objectIntegralregning = integralregning(50, 34, 100, 10000)
+objectIntegralregning = integralregning(5, 6, 10, 10000)
 objectIntegralregning.integral(3, 10)
