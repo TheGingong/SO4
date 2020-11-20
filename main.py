@@ -21,9 +21,6 @@ class main(tk.Frame):
         #self.integration["command"] = integralregning
         self.integration.pack(side=tk.TOP)
 
-    def integralregning(self):
-
-
 window = tk.Tk()
 app = main(master=window)
 app.mainloop()

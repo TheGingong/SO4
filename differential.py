@@ -6,7 +6,7 @@ class differential():
         self.a = a
         self.b = b
         self.c = c
-
+#Test
     def func(self, x):
         #Her laver vi selve funktionsforskriften fra a, b og c.
         return ((self.a * x**2) + (self.b*x) + self.c)

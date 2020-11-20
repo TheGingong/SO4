@@ -4,7 +4,7 @@ from Integralregning import *
 import matplotlib.pyplot as plt
 from matplotlib import *
 import numpy as np
-
+#test
 class plot(differential, integralregning):
     def __init__(self):
         def f(a, x, b, c):
