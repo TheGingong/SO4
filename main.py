@@ -2,6 +2,7 @@ import math
 from Integralregning import *
 from differential import *
 import tkinter as tk
+from tkinter import messagebox
 
 class main(tk.Frame):
     def __init__(self,master=None):
@@ -23,16 +24,43 @@ class main(tk.Frame):
         self.integration["command"] = self.InputIntegral
         self.integration.pack(side=tk.TOP)
 
+        self.afslut = tk.Button(self, text="Afslut Program", padx=10, pady=10, fg="coral1",
+                                command=self.master.destroy)
+        self.afslut.pack(side=tk.BOTTOM)
+
     def InputIntegral(self):
         self.InputIntegralWindow = tk.Toplevel()
         self.InputIntegralWindow.title("Integral vindue")
         self.InputIntegralWindow.geometry("600x400")
         tk.Label(self.InputIntegralWindow, font="Helvetica 10 bold",
                  text="Herunder skal du indtaste hvad din 'a', 'b', 'c' og 'potens' værdierne, herefter tryk confirm").pack()
+
+        tk.Label(self.InputIntegralWindow, font="Helvetica 10 bold",
+                 text="Herunder skal du indtaste hvad din 'a' værdi skal være").pack()
         self.InputARaw = tk.Entry(self.InputIntegralWindow)
         self.InputARaw.pack()
 
-        self.confirm = tk.Button(self.InputIntegralWindow, text="Acceptér valg.", padx=10, pady=10, fg="dark green",
+        tk.Label(self.InputIntegralWindow, font="Helvetica 10 bold",
+                 text="Herunder skal du indtaste hvad din 'potens' værdi for 'a'").pack()
+
+        self.InputPRaw = tk.Entry(self.InputIntegralWindow)
+        self.InputPRaw.pack()
+
+        tk.Label(self.InputIntegralWindow, font="Helvetica 10 bold",
+                 text="Herunder skal du indtaste hvad din 'b' værdi skal være").pack()
+
+        self.InputBRaw = tk.Entry(self.InputIntegralWindow)
+        self.InputBRaw.pack()
+
+        tk.Label(self.InputIntegralWindow, font="Helvetica 10 bold",
+                 text="Herunder skal du indtaste hvad din 'c' værdi skal være").pack()
+
+        self.InputCRaw = tk.Entry(self.InputIntegralWindow)
+        self.InputCRaw.pack()
+
+
+
+        self.confirm = tk.Button(self.InputIntegralWindow, text="Confirm", padx=10, pady=10, fg="dark green",
                                  command=self.onPress)
         self.confirm.pack()
 
@@ -40,7 +68,13 @@ class main(tk.Frame):
                   command=self.InputIntegralWindow.destroy).pack()
 
     def onPress(self):
-        self.InputA = self.InputARaw.get()
+        try:
+            self.InputA = float(self.InputARaw.get())
+            self.InputP = int(self.InputPRaw.get())
+            self.InputB = float(self.InputBRaw.get())
+            self.InputC = float(self.InputCRaw.get())
+        except:
+            messagebox.showwarning("Fejl", "Det indtastede tal, skal være enten et tal eller decimaltal (brug punktum ikke komma)")
 
 window = tk.Tk()
 app = main(master=window)
