@@ -22,7 +22,7 @@ class main(tk.Frame):
         self.integration.pack(side=tk.TOP)
 
     def integralregning(self):
-        
+
 
 window = tk.Tk()
 app = main(master=window)
