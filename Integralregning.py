@@ -31,7 +31,7 @@ class integralregning():
         self.xOne = xOne
 
         self.deltaX = (self.xOne - self.xZero) / self.columns
-
+ 
         self.sum = 0
         n = 0
         while True:
