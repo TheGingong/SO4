@@ -4,7 +4,8 @@ from Integralregning import *
 import matplotlib.pyplot as plt
 from matplotlib import *
 import numpy as np
-#test
+
+
 class plot(differential, integralregning):
     def __init__(self):
         def f(a, x, b, c):
@@ -19,11 +20,12 @@ class plot(differential, integralregning):
         yer = f(objectIntegralregning.a, xer, objectIntegralregning.b, objectIntegralregning.c)
         filx1 = np.linspace(lower, upper, 100)
         fily = f(objectIntegralregning.a, filx1, objectIntegralregning.b, objectIntegralregning.c)
-        #ax = plt.subplots()
+        ax = plt.subplot()
         plt.plot(xer, yer)
         #plt.fill_between(xer, yer, 0, color="red", alpha=0.5)
         plt.vlines(x=[lower,upper],ymin=0,ymax=[f(objectIntegralregning.a, lower, objectIntegralregning.b, objectIntegralregning.c),f(objectIntegralregning.a, upper, objectIntegralregning.b, objectIntegralregning.c)], color= "green")
         plt.fill_between(filx1, fily, 0, color="red", alpha=0.5)
+        ax.text(0, 500, "Arealet er: " + str(objectIntegralregning.sum), ha = "center", fontsize= 14 )
         plt.show()
 
 
