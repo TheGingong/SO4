@@ -16,11 +16,11 @@ class main(tk.Frame):
     def theHub(self):
         self.differentiering  = tk.Button(self)
         self.differentiering ["text"] = "Differentiering"
-        #self.differentiering["command"] =
+        self.differentiering["command"] = self.InputDifferentiering
         self.differentiering.pack(side=tk.TOP)
 
         self.integration = tk.Button(self)
-        self.integration["text"] = "Integration"
+        self.integration["text"] = "Integral"
         self.integration["command"] = self.InputIntegral
         self.integration.pack(side=tk.TOP)
 
@@ -67,6 +67,39 @@ class main(tk.Frame):
         tk.Button(self.InputIntegralWindow, text="Tilbage til menuen.", padx=10, pady=10, fg="coral1",
                   command=self.InputIntegralWindow.destroy).pack()
 
+
+    def InputDifferentiering(self):
+        self.DifferentieringWindow = tk.Toplevel()
+        self.DifferentieringWindow.title("Differentiering")
+        self.DifferentieringWindow.geometry("600x400")
+
+        tk.Label(self.DifferentieringWindow, font="Helvetica 10 bold",
+              text="Herunder skal du indtaste hvad din 'a' værdi skal være").pack()
+        self.InputARaw = tk.Entry(self.DifferentieringWindow)
+        self.InputARaw.pack()
+
+        tk.Label(self.DifferentieringWindow, font="Helvetica 10 bold",
+                 text="Herunder skal du indtaste hvad din 'potens' værdi for 'a'").pack()
+        self.InputPRaw = tk.Entry(self.DifferentieringWindow)
+        self.InputPRaw.pack()
+
+        tk.Label(self.DifferentieringWindow, font="Helvetica 10 bold",
+                 text="Herunder skal du indtaste hvad din 'b' værdi skal være").pack()
+        self.InputBRaw = tk.Entry(self.DifferentieringWindow)
+        self.InputBRaw.pack()
+
+        tk.Label(self.DifferentieringWindow, font="Helvetica 10 bold",
+                 text="Herunder skal du indtaste hvad din 'c' værdi skal være").pack()
+        self.InputCRaw = tk.Entry(self.DifferentieringWindow)
+        self.InputCRaw.pack()
+
+        self.confirm = tk.Button(self.DifferentieringWindow, text="Confirm", padx=10, pady=10, fg="dark green",
+                            command=self.onPress)
+        self.confirm.pack()
+
+        tk.Button(self.DifferentieringWindow, text="Tilbage til menuen.", padx=10, pady=10, fg="coral1",
+                  command=self.DifferentieringWindow.destroy).pack()
+
     def onPress(self):
         try:
             self.InputA = float(self.InputARaw.get())
@@ -75,6 +108,7 @@ class main(tk.Frame):
             self.InputC = float(self.InputCRaw.get())
         except:
             messagebox.showwarning("Fejl", "Det indtastede tal, skal være enten et tal eller decimaltal (brug punktum ikke komma)")
+
 
 window = tk.Tk()
 app = main(master=window)
