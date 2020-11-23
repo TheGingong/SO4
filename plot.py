@@ -12,8 +12,8 @@ class plot(differential, integralregning):
             # Her laver vi selve funktionsforskriften fra a, b og c.
             return ((a * x ** 2) + (b * x) + c)
 
-        lower = objectIntegralregning.xZeroTwo
-        upper = objectIntegralregning.xOneTwo
+        lower = objectIntegralregning.plotxZeroINT
+        upper = objectIntegralregning.plotxOneINT
 
         #Plot af integralregning
         xer = np.linspace(-15, 15, 1000)
@@ -30,7 +30,7 @@ class plot(differential, integralregning):
 
 
         #Plot af differentialregningen
-        xerDiff = np.linspace(objectDiff.xZero, objectDiff.xOneTwo, 1000)
+        xerDiff = np.linspace(objectDiff.xZero, objectDiff.plotxOneDIFF, 1000)
         yerDiff = self.tangentPåLinjen(xer)
         plt.plot(xerDiff, yerDiff)
         plt.plot(xerDiff, f(objectDiff.a, xer, objectDiff.b, objectDiff.c))

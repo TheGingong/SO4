@@ -27,9 +27,12 @@ class integralregning():
     # arealet skal udregnes.
     def integral(self, xZero, xOne):
         self.xZero = xZero
-        self.xZeroTwo = xZero
-        self.xOneTwo = xOne
         self.xOne = xOne
+
+        #Disse to variabler bliver brugt til plot funktionen og til at sætte linjerne korrekt.
+        #Det kan nemlige ikke være de andre to, da de bliver opdateret i et "while loop" herunder.
+        self.plotxZeroINT = xZero
+        self.plotxOneINT = xOne
 
         self.deltaX = (self.xOne - self.xZero) / self.columns
 

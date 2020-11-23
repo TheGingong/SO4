@@ -18,8 +18,12 @@ class differential():
     #Og dermed får vi hældningskoefficienten.
     def Differential(self, xZero, xOne):
         self.xZero = xZero
-        self.xOneTwo = xOne
         self.xOne = xOne
+
+        # Disse to variabler bliver brugt til plot funktionen og til at sætte linjerne korrekt.
+        # Det kan nemlige ikke være de andre to, da de bliver opdateret i et "while loop" herunder.
+        self.plotxOneDIFF = xOne
+
 
         loop = 0
         while loop < 50:
@@ -32,5 +36,5 @@ class differential():
             if loop == 100:
                 break
 
-objectDiff = differential(2, 4, 10)
+objectDiff = differential(5, 6, 10)
 objectDiff.Differential(3, 10)
