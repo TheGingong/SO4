@@ -3,6 +3,7 @@ from Integralregning import *
 from differential import *
 import tkinter as tk
 from tkinter import messagebox
+from sympy import *
 
 class main(tk.Frame):
     def __init__(self,master=None):
@@ -32,33 +33,12 @@ class main(tk.Frame):
         self.InputIntegralWindow = tk.Toplevel()
         self.InputIntegralWindow.title("Integral vindue")
         self.InputIntegralWindow.geometry("600x400")
-        tk.Label(self.InputIntegralWindow, font="Helvetica 10 bold",
-                 text="Herunder skal du indtaste hvad din 'a', 'b', 'c' og 'potens' værdierne, herefter tryk confirm").pack()
 
-        tk.Label(self.InputIntegralWindow, font="Helvetica 10 bold",
-                 text="Herunder skal du indtaste hvad din 'a' værdi skal være").pack()
-        self.InputARaw = tk.Entry(self.InputIntegralWindow)
-        self.InputARaw.pack()
-
-        tk.Label(self.InputIntegralWindow, font="Helvetica 10 bold",
-                 text="Herunder skal du indtaste hvad din 'potens' værdi for 'a'").pack()
-
-        self.InputPRaw = tk.Entry(self.InputIntegralWindow)
-        self.InputPRaw.pack()
-
-        tk.Label(self.InputIntegralWindow, font="Helvetica 10 bold",
-                 text="Herunder skal du indtaste hvad din 'b' værdi skal være").pack()
-
-        self.InputBRaw = tk.Entry(self.InputIntegralWindow)
-        self.InputBRaw.pack()
-
-        tk.Label(self.InputIntegralWindow, font="Helvetica 10 bold",
-                 text="Herunder skal du indtaste hvad din 'c' værdi skal være").pack()
-
-        self.InputCRaw = tk.Entry(self.InputIntegralWindow)
-        self.InputCRaw.pack()
-
-
+        tk.Label(self.InputIntegralWindow, font="Helvetica 14 bold",
+                 text="Herunder skal du indtaste din funktionsforskrift\n For eksempel: 5*x **2 + 5*x + 5\n"
+                      "** HUSK AT LAVE '*' MELLEM TAL OG X **").pack()
+        self.InputFRaw = tk.Entry(self.InputIntegralWindow)
+        self.InputFRaw.pack()
 
         self.confirm = tk.Button(self.InputIntegralWindow, text="Confirm", padx=10, pady=10, fg="dark green",
                                  command=self.onPress)
@@ -74,7 +54,7 @@ class main(tk.Frame):
         self.DifferentieringWindow.geometry("600x400")
 
         tk.Label(self.DifferentieringWindow, font="Helvetica 10 bold",
-              text="Herunder skal du indtaste hvad din 'a' værdi skal være").pack()
+              text="Herunder skal du indtaste din funktionsforskrift samt antallet af ").pack()
         self.InputARaw = tk.Entry(self.DifferentieringWindow)
         self.InputARaw.pack()
 
@@ -100,15 +80,20 @@ class main(tk.Frame):
         tk.Button(self.DifferentieringWindow, text="Tilbage til menuen.", padx=10, pady=10, fg="coral1",
                   command=self.DifferentieringWindow.destroy).pack()
 
+    #Funktionen der bliver kørt når man sender tal ind igennem en entryboks.
+    #Den tjekker om visse krav bliver overholdt.
     def onPress(self):
-        try:
-            self.InputA = float(self.InputARaw.get())
-            self.InputP = int(self.InputPRaw.get())
-            self.InputB = float(self.InputBRaw.get())
-            self.InputC = float(self.InputCRaw.get())
-        except:
+        self.InputA = str(self.InputFRaw.get())
+        if len(self.InputA) == 0:
             messagebox.showwarning("Fejl", "Det indtastede tal, skal være enten et tal eller decimaltal (brug punktum ikke komma)")
-
+        else:
+            if "0" in self.InputA:
+                messagebox.showwarning("Fejl",
+                                       "Det indtastede tal, må ikke være et 0. Hvis det var din intension, så lad være med at skriv noget")
+            else:
+                if "^" in self.InputA:
+                    messagebox.showwarning("Fejl", "Når du skal opløfte en potens skal du benytte dig af ** istedet for ^.\n"
+                                                   "Et eksempel på dette: a * x**2 + b * x + c")
 
 window = tk.Tk()
 app = main(master=window)
