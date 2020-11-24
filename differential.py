@@ -18,6 +18,7 @@ class Diff():
 
     #Her differentiere vi deltaX til at gå imod x0 indtil den er så tæt på nul som muligt
     #Og dermed får vi hældningskoefficienten.
+
     def Differentialudregner(self):
         self.loop = 0
         while self.loop < 50:

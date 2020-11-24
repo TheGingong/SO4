@@ -59,6 +59,7 @@ class main(tk.Frame):
     #Den tjekker om visse krav bliver overholdt.
     #Den laver også en objekt af den valgte metode, og sender objektet til behandling i de forskellige klasser (DIFF)
     def onPressDiff(self):
+
         self.InputFunc = str(self.InputFuncRaw.get())
         if len(self.InputFunc) == 0:
             messagebox.showwarning("Fejl", "Det indtastede tal, skal være enten et tal eller decimaltal (brug punktum ikke komma)")

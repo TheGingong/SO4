@@ -27,6 +27,7 @@ class integralregning():
 
     # Denne funktion benytter vi det princip omkring integralregning og hvordan vi definere hvordan
     # arealet skal udregnes.
+
     def integral(self):
         #Disse to variabler bliver brugt til plot funktionen og til at sætte linjerne korrekt.
         #Det kan nemlige ikke være de andre to, da de bliver opdateret i et "while loop" herunder.
