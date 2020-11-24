@@ -34,7 +34,7 @@ class Diff():
         self.loop = 0
         self.reps = 100
         self.list_slopes = []
-        self.x_values = np.linspace(self.lowerBoundKOPI, self.upperBoundKOPI, num=self.reps)
+        self.x_values = np.linspace(-100, 100, num=self.reps)
         for x in self.x_values:
             while True:
                 self.loop += 1
