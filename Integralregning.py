@@ -20,21 +20,16 @@ class integralregning():
         self.lowerBoundKOPI = lower
         self.upperBoundKOPI = upper
 
-    # I denne funktion bliver vores funktionsforskrift skrevet udfra hvad a, b, c,
-    def func(self, x):
-        # Her laver vi selve funktionsforskriften vha. a, b og c som også ses i "differential.py".
-        return ((self.a * x ** 2) + (self.b * x) + self.c)
-
     # Denne funktion benytter vi det princip omkring integralregning og hvordan vi definere hvordan
     # arealet skal udregnes.
 
     def integral(self):
         #Disse to variabler bliver brugt til plot funktionen og til at sætte linjerne korrekt.
         #Det kan nemlige ikke være de andre to, da de bliver opdateret i et "while loop" herunder.
-
         self.deltaX = (self.upperBound - self.lowerBound) / self.columns
 
         self.sum = 0
+
         n = 0
         while True:
             n += 1

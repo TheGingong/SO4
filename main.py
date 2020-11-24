@@ -27,14 +27,14 @@ class main(tk.Frame):
         #Tekst felt der forklarer hvad man skal indputte
         tk.Label(self.master, font="Helvetica 12", text="Herunder skal du indtaste din første x værdi (x0)").pack()
         #Første entryboks til X0 (lower)
-        self.InputLower = tk.Entry(self.master)
-        self.InputLower.pack()
+        self.InputLowerRaw = tk.Entry(self.master)
+        self.InputLowerRaw.pack()
 
         #Tekst felt der forklarer hvad man skal indputte
         tk.Label(self.master, font="Helvetica 12",text="Herunder skal du indtaste din sidste x værdi (x1)").pack()
         #Anden entryboks til X1 (upper)
-        self.InputUpper = tk.Entry(self.master)
-        self.InputUpper.pack()
+        self.InputUpperRaw = tk.Entry(self.master)
+        self.InputUpperRaw.pack()
 
         # Tekst felt der forklarer hvad man skal indputte
         tk.Label(self.master, font="Helvetica 14", text="Herunder skal du vælge om du vil plotte en differential- eller integral kurve").pack()
@@ -59,13 +59,14 @@ class main(tk.Frame):
     #Den tjekker om visse krav bliver overholdt.
     #Den laver også en objekt af den valgte metode, og sender objektet til behandling i de forskellige klasser (DIFF)
     def onPressDiff(self):
-
+        self.InputLower = float(self.InputLowerRaw.get())
+        self.InputUpper = float(self.InputUpperRaw.get())
         self.InputFunc = str(self.InputFuncRaw.get())
         if len(self.InputFunc) == 0:
             messagebox.showwarning("Fejl", "Det indtastede tal, skal være enten et tal eller decimaltal (brug punktum ikke komma)")
         else:
             print("You did it")
-            self.objectDiff = Diff(self.InputFunc,3,10)
+            self.objectDiff = Diff(self.InputFunc, self.InputLower, self.InputUpper)
             #self.diffplotobjekt = Plot(self.objectDiff)
 
             #Vælg en af de to til test underneden. Så COMMENT den du ikke bruger.
@@ -76,12 +77,14 @@ class main(tk.Frame):
     # Den tjekker om visse krav bliver overholdt.
     # Den laver også en objekt af den valgte metode, og sender objektet til behandling i de forskellige klasser (INT)
     def onPressInt(self):
+        self.InputLower = str(self.InputLowerRaw.get())
+        self.InputUpper = str(self.InputUpperRaw.get())
         self.InputFunc = str(self.InputFuncRaw.get())
         if len(self.InputFunc) == 0:
             messagebox.showwarning("Fejl", "Det indtastede tal, skal være enten et tal eller decimaltal (brug punktum ikke komma)")
         else:
             print("You did it")
-            self.objectInt = integralregning(self.InputFunc,3,10,1000)
+            self.objectInt = integralregning(self.InputFunc, self.InputLower, self.InputUpper, 1000)
             #self.intplotobjekt = Plot(self.objectInt)
             self.objectInt.integral()
 

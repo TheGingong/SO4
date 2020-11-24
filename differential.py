@@ -4,7 +4,7 @@ import numpy as np
 
 class Diff():
     #Vi har fået hjælp af david til at lave differentialregningen i python
-    def __init__(self, expr,lower,upper):
+    def __init__(self, expr, lower, upper):
         self.fn = Expression(expr, "x")
         self.lowerBound = lower
         self.upperBound = upper
