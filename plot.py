@@ -4,17 +4,15 @@ from Integralregning import *
 import matplotlib.pyplot as plt
 from matplotlib import *
 import numpy as np
+""""
+class Plot():
+    def __init__(self, objektet):
+        self.funktionsforskrift = objektet.fn
+        self.lower = objektet.lowerBound
+        self.upper = objektet.upperBound
+        self.plot_Differentialregning()
 
-
-class plot(differential, integralregning):
-    def __init__(self):
-        def f(a, x, b, c):
-            # Her laver vi selve funktionsforskriften fra a, b og c.
-            return ((a * x ** 2) + (b * x) + c)
-
-        lower = objectIntegralregning.plotxZeroINT
-        upper = objectIntegralregning.plotxOneINT
-
+    def plot_Integralregning(self):
         #Plot af integralregning
         xer = np.linspace(-15, 15, 1000)
         yer = f(objectIntegralregning.a, xer, objectIntegralregning.b, objectIntegralregning.c)
@@ -28,11 +26,11 @@ class plot(differential, integralregning):
         ax.text(0, 500, "Arealet er: " + str(objectIntegralregning.sum), ha = "center", fontsize= 14 )
         plt.show()
 
-
+    def plot_Differentialregning(self):
         #Plot af differentialregningen
-        xerDiff = np.linspace(objectDiff.xZero, objectDiff.plotxOneDIFF, 1000)
-        yerDiff = self.tangentPåLinjen(xer)
+        xerDiff = np.linspace(-15, 15, 1000)
+        yerDiff = self.tangentPåLinjen(xerDiff)
         plt.plot(xerDiff, yerDiff)
-        plt.plot(xerDiff, f(objectDiff.a, xer, objectDiff.b, objectDiff.c))
+        plt.plot(xerDiff, self.funktionsforskrift(xerDiff))
         plt.show()
-plot()
+"""""

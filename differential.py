@@ -1,40 +1,51 @@
 import math
+from Equation import Expression
+import numpy as np
 
-class differential():
+class Diff():
     #Vi har fået hjælp af david til at lave differentialregningen i python
-    def __init__(self, a, b, c):
-        self.a = a
-        self.b = b
-        self.c = c
+    def __init__(self, expr,lower,upper):
+        self.fn = Expression(expr, "x")
+        self.lowerBound = lower
+        self.upperBound = upper
 
-    def func(self, x):
-        #Her laver vi selve funktionsforskriften fra a, b og c.
-        return ((self.a * x**2) + (self.b*x) + self.c)
+        # Disse nedenstående værdier bruger vi til at plotte med rigtig mellemrum, da disse værdier ikke bliver ændret.
+        self.lowerBoundKOPI = lower
+        self.upperBoundKOPI = upper
 
     def tangentPåLinjen(self, x):
-        return objectDiff.formel * x + objectDiff.tangentB
+        return self.slope * x + self.tangentB
 
     #Her differentiere vi deltaX til at gå imod x0 indtil den er så tæt på nul som muligt
     #Og dermed får vi hældningskoefficienten.
-    def Differential(self, xZero, xOne):
-        self.xZero = xZero
-        self.xOne = xOne
+    def Differentialudregner(self):
+        self.loop = 0
+        while self.loop < 50:
+            self.loop += 1
+            self.slope = (self.fn(self.lowerBound + self.upperBound) - self.fn(self.lowerBound)) / (
+                        (self.lowerBound + self.upperBound) - self.lowerBound)
 
-        # Disse to variabler bliver brugt til plot funktionen og til at sætte linjerne korrekt.
-        # Det kan nemlige ikke være de andre to, da de bliver opdateret i et "while loop" herunder.
-        self.plotxOneDIFF = xOne
+            self.upperBound = self.upperBound / 2
+            self.tangentB = self.fn(self.lowerBound) - self.slope * self.lowerBound
+            print(self.slope)
 
+    def slopeFunction(self):
+        self.loop = 0
+        self.reps = 100
+        self.list_slopes = []
+        self.x_values = np.linspace(self.lowerBoundKOPI, self.upperBoundKOPI, num=self.reps)
+        for x in self.x_values:
+            while True:
+                self.loop += 1
+                self.slopeGraph = (self.fn(self.lowerBound + self.upperBound) - self.fn(self.lowerBound)) / ((self.lowerBound + self.upperBound) - self.lowerBound)
 
-        loop = 0
-        while loop < 50:
-            loop += 1
-            self.formel = (self.func(self.xZero + self.xOne) - self.func(self.xZero)) / ((self.xZero + self.xOne) - self.xZero)
+                self.upperBound = self.upperBound / 2
+                self.tangentB = self.fn(self.lowerBound) - self.slopeGraph * self.lowerBound
+                print(self.slopeGraph)
 
-            self.xOne = self.xOne / 2
-            self.tangentB = self.func(objectDiff.xZero) - objectDiff.formel * objectDiff.xZero
-            print(self.formel)
-            if loop == 100:
-                break
-
-objectDiff = differential(5, 6, 10)
-objectDiff.Differential(3, 10)
+                if self.loop == 40:
+                    self.lowerBound += self.reps / self.lowerBound
+                    self.upperBound = self.upperBoundKOPI
+                    self.list_slopes.append(self.slopeGraph)
+                    print(self.list_slopes)
+                    break
