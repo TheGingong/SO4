@@ -13,6 +13,8 @@ class Diff():
         self.lowerBoundKOPI = lower
         self.upperBoundKOPI = upper
 
+
+    #Vi skal have lavet denne funktion om. Det er meget vigtigt for at plot virker.
     def tangentPåLinjen(self, x):
         return self.slope * x + self.tangentB
 
