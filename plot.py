@@ -14,9 +14,17 @@ class plot():
         self.xerDiff = np.linspace(self.lower-15, self.lower+15, 1000)
         self.ligningYvals = self.funktionsforskrift(self.xerDiff)
         self.tangentYvals = self.objektet.tangentPåLinjen(self.xerDiff)
+        # Skriver funktionsforskriften ind på grafen, og skriver b værdien ind baseret på om det er plus eller minus.
+        if self.objektet.B > 0:
+            self.printFunktionsforskrift = "f(x) = " + str(self.objektet.slope) + "x" + " + " + str(self.objektet.B)
+        else:
+            self.printFunktionsforskrift = "f(x) = " + str(self.objektet.slope) + "x" + " " + str(self.objektet.B)
+
         plt.plot(self.xerDiff, self.ligningYvals)
         plt.plot(self.xerDiff, self.tangentYvals) # optegner linjerne på grafen
-
+        ax = plt.subplot()
+        ax.text(0.5, 0.5, f"Funktionsforskriften for tangenten er: {self.printFunktionsforskrift}", ha='center', va='center',
+                transform=ax.transAxes, fontsize=14)  # ax.text, laver text på grafen
         plt.title("Differential plot") # Tilføjer en title over graf
         plt.ylabel("y-akse")  # Skriver text ud fra den venstre side af grafen
         plt.xlabel("x-akse")  # Skriver text ud fra den højre side af grafen
@@ -26,7 +34,7 @@ class plot():
         self.xerInt = np.linspace(self.lower - 15, self.lower + 15, 1000)
         self.ligningYvals = self.funktionsforskrift(self.xerInt)
         plt.plot(self.xerInt, self.ligningYvals)
-        ax = plt.subplot() #hjælper til med text på grafen
+
         ax.text(0.5, 0.5, f"Arealet er: {self.objektet.sum:.3f}", ha='center', va='center',
                 transform=ax.transAxes, fontsize=14)# ax.text, laver text på grafen
         filx1 = np.linspace(self.lower, self.upper, 100) #Laver vores areal på grafen
