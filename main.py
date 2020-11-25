@@ -77,8 +77,8 @@ class main(tk.Frame):
     # Den tjekker om visse krav bliver overholdt.
     # Den laver også en objekt af den valgte metode, og sender objektet til behandling i de forskellige klasser (INT)
     def onPressInt(self):
-        self.InputLower = str(self.InputLowerRaw.get())
-        self.InputUpper = str(self.InputUpperRaw.get())
+        self.InputLower = float(self.InputLowerRaw.get())
+        self.InputUpper = float(self.InputUpperRaw.get())
         self.InputFunc = str(self.InputFuncRaw.get())
         if len(self.InputFunc) == 0:
             messagebox.showwarning("Fejl", "Det indtastede tal, skal være enten et tal eller decimaltal (brug punktum ikke komma)")

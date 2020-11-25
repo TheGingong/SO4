@@ -14,7 +14,7 @@ class Diff():
         self.upperBoundKOPI = upper
 
     def tangentPåLinjen(self, x):
-        return self.slope * x + self.tangentB
+        return self.slope * self.lowerBoundKOPI + self.tangentB
 
     #Her differentiere vi deltaX til at gå imod x0 indtil den er så tæt på nul som muligt
     #Og dermed får vi hældningskoefficienten.
@@ -30,10 +30,13 @@ class Diff():
             self.tangentB = self.fn(self.lowerBound) - self.slope * self.lowerBound
             print(self.slope)
 
+    """""
+    #Funktionen til at tilføje forskellige hældningskoefficienter til en tom liste, hvorefter den skal printes.
     def slopeFunction(self):
         self.loop = 0
         self.reps = 100
         self.list_slopes = []
+        self.list_yvalues = []
         self.x_values = np.linspace(-100, 100, num=self.reps)
         for x in self.x_values:
             while True:
@@ -50,3 +53,5 @@ class Diff():
                     self.list_slopes.append(self.slopeGraph)
                     print(self.list_slopes)
                     break
+                    
+        """""
