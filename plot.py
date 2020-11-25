@@ -1,8 +1,6 @@
-import math
 from differential import *
 from Integralregning import *
 import matplotlib.pyplot as plt
-from matplotlib import *
 import numpy as np
 
 class plot():
@@ -20,8 +18,8 @@ class plot():
         plt.plot(self.xerDiff, self.tangentYvals) # optegner linjerne på grafen
 
         plt.title("Differential plot") # Tilføjer en title over graf
-        plt.ylabel("y")  # Skriver text ud fra den venstre side af grafen
-        plt.xlabel("x")  # Skriver text ud fra den højre side af grafen
+        plt.ylabel("y-akse")  # Skriver text ud fra den venstre side af grafen
+        plt.xlabel("x-akse")  # Skriver text ud fra den højre side af grafen
         plt.show()
 
     def plotIntegral(self):
@@ -39,6 +37,6 @@ class plot():
                         self.funktionsforskrift(self.upper)], color="blue") #Vlines laver nogle linjer som gør fra x aksen og på til funktionen.
 
         plt.title("Integral plot") #Tilføjer en title over graf
-        plt.ylabel("y") #Skriver text ud fra den venstre side af grafen
-        plt.xlabel("x") #Skriver text ud fra den højre side af grafen
+        plt.ylabel("y-akse") #Skriver text ud fra den venstre side af grafen
+        plt.xlabel("x-akse") #Skriver text ud fra den højre side af grafen
         plt.show()
