@@ -29,8 +29,8 @@ class plot():
         self.ligningYvals = self.funktionsforskrift(self.xerInt)
         plt.plot(self.xerInt, self.ligningYvals)
         ax = plt.subplot() #hjælper til med text på grafen
-        ax.text(0.5, 0.5, f"Arealet er: {self.objektet.sum:.3f}", ha='center', va='center', transform=ax.transAxes, fontsize=14)
-       # ax.text, laver text på grafen
+        ax.text(0.5, 0.5, f"Arealet er: {self.objektet.sum:.3f}", ha='center', va='center',
+                transform=ax.transAxes, fontsize=14)# ax.text, laver text på grafen
         filx1 = np.linspace(self.lower, self.upper, 100) #Laver vores areal på grafen
         fily = self.funktionsforskrift(filx1)
         plt.fill_between(filx1, fily, 0, color="red", alpha=0.5) #Laver fill i vores areal
