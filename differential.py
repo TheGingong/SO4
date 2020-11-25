@@ -4,7 +4,7 @@ import numpy as np
 
 class Diff():
     #Vi har fået hjælp af david til at lave differentialregningen i python
-    def __init__(self, expr,lower,upper):
+    def __init__(self, expr, lower, upper):
         self.fn = Expression(expr, "x")
         self.lowerBound = lower
         self.upperBound = upper
@@ -13,6 +13,8 @@ class Diff():
         self.lowerBoundKOPI = lower
         self.upperBoundKOPI = upper
 
+
+    #Vi skal have lavet denne funktion om. Det er meget vigtigt for at plot virker.
     def tangentPåLinjen(self, x):
         return self.slope * x + self.tangentB
 
@@ -34,7 +36,7 @@ class Diff():
         self.loop = 0
         self.reps = 100
         self.list_slopes = []
-        self.x_values = np.linspace(self.lowerBoundKOPI, self.upperBoundKOPI, num=self.reps)
+        self.x_values = np.linspace(-100, 100, num=self.reps)
         for x in self.x_values:
             while True:
                 self.loop += 1
