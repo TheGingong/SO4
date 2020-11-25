@@ -65,13 +65,12 @@ class main(tk.Frame):
         if len(self.InputFunc) == 0:
             messagebox.showwarning("Fejl", "Det indtastede tal, skal være enten et tal eller decimaltal (brug punktum ikke komma)")
         else:
-            print("You did it")
             self.objectDiff = Diff(self.InputFunc, self.InputLower, self.InputUpper)
-            #self.diffplotobjekt = Plot(self.objectDiff)
-
-            #Vælg en af de to til test underneden. Så COMMENT den du ikke bruger.
+            # Vælg en af de to til test underneden. Så COMMENT den du ikke bruger.
             self.objectDiff.Differentialudregner()
-            #self.objectDiff.slopeFunction()
+            # self.objectDiff.slopeFunction()
+            plotObjectDiff = plot(self.objectDiff, self.InputLower, self.InputUpper)
+            plotObjectDiff.plotDifferential()
 
     # Funktionen der bliver kørt når man sender tal ind igennem en entryboks.
     # Den tjekker om visse krav bliver overholdt.
@@ -83,10 +82,10 @@ class main(tk.Frame):
         if len(self.InputFunc) == 0:
             messagebox.showwarning("Fejl", "Det indtastede tal, skal være enten et tal eller decimaltal (brug punktum ikke komma)")
         else:
-            print("You did it")
             self.objectInt = integralregning(self.InputFunc, self.InputLower, self.InputUpper, 1000)
-            #self.intplotobjekt = Plot(self.objectInt)
             self.objectInt.integral()
+            plotObjectInt = plot(self.objectInt, self.InputLower, self.InputUpper)
+            plotObjectInt.plotIntegral()
 
 window = tk.Tk()
 app = main(master=window)

@@ -13,14 +13,8 @@ class Diff():
         self.lowerBoundKOPI = lower
         self.upperBoundKOPI = upper
 
-
-    #Vi skal have lavet denne funktion om. Det er meget vigtigt for at plot virker.
-    def tangentPåLinjen(self, x):
-        return self.slope * self.lowerBoundKOPI + self.tangentB
-
     #Her differentiere vi deltaX til at gå imod x0 indtil den er så tæt på nul som muligt
     #Og dermed får vi hældningskoefficienten.
-
     def Differentialudregner(self):
         self.loop = 0
         while self.loop < 50:
@@ -29,8 +23,12 @@ class Diff():
                         (self.lowerBound + self.upperBound) - self.lowerBound)
 
             self.upperBound = self.upperBound / 2
-            self.tangentB = self.fn(self.lowerBound) - self.slope * self.lowerBound
+            self.B = self.fn(self.lowerBound) - self.slope * self.lowerBound
             print(self.slope)
+
+    def tangentPåLinjen(self, lower):
+        self.lowerBound = lower
+        return self.slope * self.lowerBound + self.B
 
     """""
     #Funktionen til at tilføje forskellige hældningskoefficienter til en tom liste, hvorefter den skal printes.
