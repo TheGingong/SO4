@@ -11,6 +11,7 @@ class integralregning():
     # I init funktionen modtager vi en a-, b-, c værdi samt en værdi for hvor mange søjler der skal være
     # for at regne det mest præcise areal ud.
     def __init__(self, expr, lower, upper, columns):
+        #Herunder bliver objektet lavet i init funktionen til integralregning
         self.fn = Expression(expr, "x")
         self.lowerBound = lower
         self.upperBound = upper
@@ -25,7 +26,6 @@ class integralregning():
 
     def integral(self):
         #Disse to variabler bliver brugt til plot funktionen og til at sætte linjerne korrekt.
-        #Det kan nemlige ikke være de andre to, da de bliver opdateret i et "while loop" herunder.
         self.deltaX = (self.upperBound - self.lowerBound) / self.columns
 
         self.sum = 0
@@ -41,5 +41,4 @@ class integralregning():
             self.sum += self.areal
 
             if n == self.columns:
-                print(self.sum)
                 break

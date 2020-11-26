@@ -5,6 +5,7 @@ import numpy as np
 class Diff():
     #Vi har fået hjælp af david til at lave differentialregningen i python
     def __init__(self, expr, lower, upper):
+        #Herunder bliver objektet lavet i init funktionen til differentialregning
         self.fn = Expression(expr, "x")
         self.lowerBound = lower
         self.upperBound = upper
@@ -24,12 +25,15 @@ class Diff():
 
             self.upperBound = self.upperBound / 2
             self.B = self.fn(self.lowerBound) - self.slope * self.lowerBound
-            print(self.slope)
 
+    #Funktionen til at udregne tangenten på punkt x0
     def tangentPåLinjen(self, lower):
         self.lowerBound = lower
         return self.slope * self.lowerBound + self.B
 
+
+#Herunder skulle vi til at se på slopeFunction() dog havde vi ikke tid til dette, da vi brugte meget af tiden på at omskrive vores program som vi har beskrevet i
+#vores konklusion.
     """""
     #Funktionen til at tilføje forskellige hældningskoefficienter til en tom liste, hvorefter den skal printes.
     def slopeFunction(self):
