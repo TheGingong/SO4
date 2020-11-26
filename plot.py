@@ -1,5 +1,5 @@
 from differential import *
-from Integralregning import *
+from integralregning import *
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import tkinter as tk

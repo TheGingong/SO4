@@ -1,5 +1,5 @@
 import math
-from Integralregning import *
+from integralregning import *
 from differential import *
 import tkinter as tk
 from tkinter import messagebox
