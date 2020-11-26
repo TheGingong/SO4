@@ -9,7 +9,7 @@ from Equation import Expression
 
 class integralregning():
     # I init funktionen modtager vi en a-, b-, c værdi samt en værdi for hvor mange søjler der skal være
-    # for at regne det mest præcise areal ud.
+    # for at regne det mest præcise areal ud
     def __init__(self, expr, lower, upper, columns):
         #Herunder bliver objektet lavet i init funktionen til integralregning
         self.fn = Expression(expr, "x")
