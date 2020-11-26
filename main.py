@@ -9,7 +9,7 @@ class main(tk.Frame):
     def __init__(self,master=None):
         super().__init__(master)
         self.master = master
-        window.title("Menu")
+        window.title("Integral- og differentialregning visualiserede")
         window.geometry("1000x666")
         self.theHub()
         self.pack()
@@ -17,35 +17,35 @@ class main(tk.Frame):
     def theHub(self):
         #Den øverste tekst som bliver vist i GUI'en.
         tk.Label(self.master, font="Helvetica 12",
-                 text="Herunder skal du indtaste din funktionsforskrift\n For eksempel: 5*x **2 + 5*x + 5\n"
-                      "** HUSK AT LAVE '*' MELLEM TAL OG X **").pack()
+                 text="Herunder skal du indtaste din funktionsforskrift").pack()
+        tk.Label(self.master, font="Helvetica 12 italic", text="For eksempel: 5*x^2 + 6*x + 10 \n ** HUSK AT LAVE 'GANGE TEGN' MELLEM TAL OG X **").pack()
 
         #Entry boks til funktionsforskrift
         self.InputFuncRaw = tk.Entry(self.master)
         self.InputFuncRaw.pack()
 
         #Tekst felt der forklarer hvad man skal indputte
-        tk.Label(self.master, font="Helvetica 12", text="Herunder skal du indtaste din første x værdi (x0)").pack()
+        tk.Label(self.master, font="Helvetica 12", text="\n\nHerunder skal du indtaste din første x værdi (x0)").pack()
         #Første entryboks til X0 (lower)
         self.InputLowerRaw = tk.Entry(self.master)
         self.InputLowerRaw.pack()
 
         #Tekst felt der forklarer hvad man skal indputte
-        tk.Label(self.master, font="Helvetica 12",text="Herunder skal du indtaste din sidste x værdi (x1)").pack()
+        tk.Label(self.master, font="Helvetica 12",text="\n\nHerunder skal du indtaste din sidste x værdi (x1)").pack()
         #Anden entryboks til X1 (upper)
         self.InputUpperRaw = tk.Entry(self.master)
         self.InputUpperRaw.pack()
 
         # Tekst felt der forklarer hvad man skal indputte
-        tk.Label(self.master, font="Helvetica 14", text="Herunder skal du vælge om du vil plotte en differential- eller integral kurve").pack()
+        tk.Label(self.master, font="Helvetica 14", text="\n\nHerunder skal du vælge om du vil plotte en differential- eller integral kurve").pack()
         #Differentionsknap hvor man vælger at plotte diff
-        self.diffknap = tk.Button(self)
+        self.diffknap = tk.Button(self, padx=10, pady=10)
         self.diffknap ["text"] = "Differentiering plot"
         self.diffknap["command"] = self.onPressDiff
         self.diffknap.pack(side=tk.TOP)
 
         #Integral knap hvor man vælger at plotte integralregningen
-        self.intknap = tk.Button(self)
+        self.intknap = tk.Button(self, padx=10, pady=10)
         self.intknap["text"] = "Integral plot"
         self.intknap["command"] = self.onPressInt
         self.intknap.pack(side=tk.TOP)
