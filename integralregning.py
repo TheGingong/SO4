@@ -23,7 +23,6 @@ class integralregning():
 
     # Denne funktion benytter vi det princip omkring integralregning og hvordan vi definere hvordan
     # arealet skal udregnes.
-
     def integral(self):
         #Disse to variabler bliver brugt til plot funktionen og til at sætte linjerne korrekt.
         self.deltaX = (self.upperBound - self.lowerBound) / self.columns
